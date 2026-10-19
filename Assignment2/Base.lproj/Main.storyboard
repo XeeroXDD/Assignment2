@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="Jgx-CJ-X0b">
             <objects>
-                <viewController id="QYR-6d-ijL" sceneMemberID="viewController">
+                <viewController id="QYR-6d-ijL" customClass="LoginViewController" customModule="Assignment2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3s8-ov-OER">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -68,7 +68,8 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="HHS-6B-eLk" kind="presentation" modalPresentationStyle="fullScreen" id="xC3-PE-f4v"/>
+                                            <action selector="loginTapped:" destination="QYR-6d-ijL" eventType="touchUpInside" id="WlM-QG-rF4"/>
+                                            <segue destination="HHS-6B-eLk" kind="presentation" identifier="showHome" modalPresentationStyle="fullScreen" id="xC3-PE-f4v"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New here? Contact your librarian for an account." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GoO-o0-XtD">
@@ -88,6 +89,10 @@
                             <constraint firstItem="ts7-f9-jWg" firstAttribute="top" secondItem="KhE-cM-O39" secondAttribute="top" constant="120" id="y7x-gz-uTV"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="passwordField" destination="Jah-Qf-jox" id="axR-M8-05z"/>
+                        <outlet property="usernameField" destination="UX5-TS-d2y" id="8od-zO-NgB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TIm-L0-J3b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -112,7 +117,7 @@
         <!--iBookHive-->
         <scene sceneID="6dv-iB-RHp">
             <objects>
-                <viewController id="01y-7b-Yn3" sceneMemberID="viewController">
+                <viewController id="01y-7b-Yn3" customClass="HomeViewController" customModule="Assignment2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KoL-Qx-ErD">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -226,6 +231,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="iBookHive" id="UPH-Kg-A1P"/>
+                    <connections>
+                        <outlet property="adminLabel" destination="E80-um-OMk" id="Sve-Zo-oe3"/>
+                        <outlet property="manageBorrowersButton" destination="dy9-hG-mOT" id="otf-Af-Htc"/>
+                        <outlet property="welcomeLabel" destination="EEB-57-sBo" id="vdg-Pf-IRS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lnv-qT-tUf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
