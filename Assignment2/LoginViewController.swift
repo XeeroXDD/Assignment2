@@ -20,6 +20,11 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        DataManager.shared.seedIfNeeded()
+
+    }
 
     @IBAction func loginTapped(_ sender: UIButton) {
         let username = usernameField.text?.trimmingCharacters(in: .whitespaces) ?? ""

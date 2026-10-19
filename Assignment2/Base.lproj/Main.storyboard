@@ -230,7 +230,15 @@
                             <constraint firstItem="e9Q-LC-faH" firstAttribute="top" secondItem="pVl-wS-IVF" secondAttribute="top" constant="24" id="upi-fj-rq3"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="iBookHive" id="UPH-Kg-A1P"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="iBookHive" id="UPH-Kg-A1P">
+                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="ku4-2D-hqL">
+                            <connections>
+                                <action selector="logoutTapped:" destination="01y-7b-Yn3" id="Dal-3x-DKf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="adminLabel" destination="E80-um-OMk" id="Sve-Zo-oe3"/>
                         <outlet property="manageBorrowersButton" destination="dy9-hG-mOT" id="otf-Af-Htc"/>
