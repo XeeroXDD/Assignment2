@@ -252,7 +252,7 @@
         <!--Books-->
         <scene sceneID="aql-xn-2DB">
             <objects>
-                <tableViewController id="qzP-73-BG2" sceneMemberID="viewController">
+                <tableViewController id="qzP-73-BG2" customClass="BookListViewController" customModule="Assignment2" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="7bx-1t-fkr">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -288,7 +288,7 @@
         <!--Add Book-->
         <scene sceneID="lG6-dx-Rbt">
             <objects>
-                <viewController id="Q1r-I9-mGP" sceneMemberID="viewController">
+                <viewController id="Q1r-I9-mGP" customClass="AddBookViewController" customModule="Assignment2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TY1-qf-VYj">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -351,6 +351,9 @@
                                                 <integer key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="saveTapped:" destination="Q1r-I9-mGP" eventType="touchUpInside" id="lBp-cq-7UX"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -364,6 +367,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Book" id="8rX-xP-M01"/>
+                    <connections>
+                        <outlet property="authorField" destination="95e-hX-gKy" id="dtl-1S-IX1"/>
+                        <outlet property="bookIDField" destination="SfC-nk-SyT" id="783-G0-USe"/>
+                        <outlet property="categoryField" destination="sS6-YP-OSU" id="sCi-Ga-180"/>
+                        <outlet property="dueInField" destination="wtp-wB-8RI" id="vAL-HV-jN3"/>
+                        <outlet property="titleField" destination="yBg-xR-3Xt" id="jpC-L1-TNO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jng-3y-FgX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
