@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -382,7 +383,7 @@
         <!--Borrowers-->
         <scene sceneID="ul9-Hl-NiS">
             <objects>
-                <tableViewController id="0uS-Vo-coY" sceneMemberID="viewController">
+                <tableViewController id="0uS-Vo-coY" customClass="BorrowerListViewController" customModule="Assignment2" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="hJC-FU-gH8">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -410,6 +411,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="pf0-2f-S1A" kind="show" identifier="showBorrowerDetail" id="onF-P4-UjO"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wgz-E3-dzA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -418,7 +422,7 @@
         <!--Add Borrower-->
         <scene sceneID="avm-Fy-OnD">
             <objects>
-                <viewController id="LcG-X9-0t2" sceneMemberID="viewController">
+                <viewController id="LcG-X9-0t2" customClass="AddBorrowerViewController" customModule="Assignment2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="22G-nq-y5J">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -473,6 +477,9 @@
                                                 <integer key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="saveTapped:" destination="LcG-X9-0t2" eventType="touchUpInside" id="0H5-Cq-s8d"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -486,10 +493,52 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Borrower" id="mUP-bg-AAb"/>
+                    <connections>
+                        <outlet property="addressField" destination="aF0-B9-RSq" id="6GZ-bm-RcT"/>
+                        <outlet property="nameField" destination="Gtq-LC-oyA" id="Vgc-0O-b2X"/>
+                        <outlet property="passwordField" destination="Vod-hp-mH0" id="z68-y4-GqS"/>
+                        <outlet property="usernameField" destination="lvP-Lh-cjt" id="NHz-js-bK6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="73J-3w-JRN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2100" y="-400"/>
+        </scene>
+        <!--Borrower Detail View Controller-->
+        <scene sceneID="DUS-4W-YDk">
+            <objects>
+                <viewController id="pf0-2f-S1A" customClass="BorrowerDetailViewController" customModule="Assignment2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="giZ-ev-saI">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ch8-1J-IIg">
+                                <rect key="frame" x="20" y="121" width="353" height="677"/>
+                                <color key="backgroundColor" red="0.10980392160000001" green="0.078431372550000003" blue="0.062745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="XSB-0V-2dn"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="XSB-0V-2dn" firstAttribute="trailing" secondItem="Ch8-1J-IIg" secondAttribute="trailing" constant="20" id="4cu-mb-Vq2"/>
+                            <constraint firstItem="Ch8-1J-IIg" firstAttribute="top" secondItem="XSB-0V-2dn" secondAttribute="top" constant="8" id="DsN-pu-ppj"/>
+                            <constraint firstItem="Ch8-1J-IIg" firstAttribute="top" secondItem="XSB-0V-2dn" secondAttribute="top" constant="20" id="Uzm-5a-W3j"/>
+                            <constraint firstItem="Ch8-1J-IIg" firstAttribute="leading" secondItem="XSB-0V-2dn" secondAttribute="leading" constant="20" id="bFK-bX-4QZ"/>
+                            <constraint firstItem="Ch8-1J-IIg" firstAttribute="top" secondItem="XSB-0V-2dn" secondAttribute="top" constant="20" id="enI-lB-Vva"/>
+                            <constraint firstItem="XSB-0V-2dn" firstAttribute="bottom" secondItem="Ch8-1J-IIg" secondAttribute="bottom" constant="20" id="m9I-xo-CTp"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="jrG-oX-F13"/>
+                    <connections>
+                        <outlet property="detailsLabel" destination="Ch8-1J-IIg" id="w4t-iP-eGh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4QU-7H-LZ9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2787" y="-400"/>
         </scene>
         <!--New Transaction-->
         <scene sceneID="gv2-Qr-N2U">
@@ -590,4 +639,9 @@
             <point key="canvasLocation" x="1350" y="1400"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
