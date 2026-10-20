@@ -50,7 +50,7 @@ class BookListViewController: UITableViewController {
         return label
     }
 
-    // MARK: - Table data
+    
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
@@ -79,4 +79,13 @@ class BookListViewController: UITableViewController {
 
         return cell
     }
-}
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            tableView.deselectRow(at: indexPath, animated: true)
+            guard Session.isAdmin else { return }   // borrowers can only browse
+
+            let book = sections[indexPath.section].books[indexPath.row]
+            guard let editor = storyboard?.instantiateViewController(withIdentifier: "AddBookVC")
+                    as? AddBookViewController else { return }
+            editor.bookToEdit = book
+            navigationController?.pushViewController(editor, animated: true)
+        }}

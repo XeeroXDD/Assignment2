@@ -14,7 +14,7 @@ class AddBookViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     @IBOutlet weak var authorField: UITextField!
     @IBOutlet weak var categoryField: UITextField!
     @IBOutlet weak var dueInField: UITextField!
-
+    var bookToEdit: Book?
     // Shown instead of the keyboard when the Category field is tapped.
     private let categoryPicker = UIPickerView()
 
@@ -31,9 +31,22 @@ class AddBookViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         // Tap anywhere on the background to close the keyboard or picker.
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:)))
         view.addGestureRecognizer(tap)
-    }
+        // Edit mode: show the existing information so it can be updated.
+        if let book = bookToEdit {
+            title = "Edit Book"
+            bookIDField.text = book.bookID
+            bookIDField.isEnabled = false      // Book ID identifies the book, so it can't change
+            bookIDField.alpha = 0.5
+            titleField.text = book.title
+            authorField.text = book.author
+            categoryField.text = book.category
+            dueInField.text = String(book.dueIn)
+            if let row = Category.all.firstIndex(of: book.category ?? "") {
+                categoryPicker.selectRow(row, inComponent: 0, animated: false)
+            }
+        }    }
 
-    // MARK: - Category picker
+    
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -51,7 +64,7 @@ class AddBookViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         categoryField.text = Category.all[row]
     }
 
-    // MARK: - Save
+    
 
     @IBAction func saveTapped(_ sender: UIButton) {
         let bookID = clean(bookIDField)
@@ -73,23 +86,31 @@ class AddBookViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             return
         }
 
-        // Business rule: Book IDs must be unique.
-        guard DataManager.shared.findBook(bookID: bookID) == nil else {
-            showAlert("Duplicate Book ID", "A book with ID \(bookID) already exists.")
-            return
-        }
-
-        // addBook sets the status to Available automatically.
-        guard DataManager.shared.addBook(bookID: bookID, title: title, author: author,
-                                         category: category, dueIn: dueIn) != nil else {
-            showAlert("Error", "The book could not be saved. Please try again.")
-            return
+        if let book = bookToEdit {
+            // Editing an existing book.
+            guard DataManager.shared.updateBook(book, title: title, author: author,
+                                                category: category, dueIn: dueIn) else {
+                showAlert("Error", "The changes could not be saved.")
+                return
+            }
+        } else {
+            // Adding a new book: Book IDs must be unique.
+            guard DataManager.shared.findBook(bookID: bookID) == nil else {
+                showAlert("Duplicate Book ID", "A book with ID \(bookID) already exists.")
+                return
+            }
+            // addBook sets the status to Available automatically.
+            guard DataManager.shared.addBook(bookID: bookID, title: title, author: author,
+                                             category: category, dueIn: dueIn) != nil else {
+                showAlert("Error", "The book could not be saved. Please try again.")
+                return
+            }
         }
 
         navigationController?.popViewController(animated: true)
     }
 
-    // MARK: - Helpers
+    
 
     private func clean(_ field: UITextField) -> String {
         return field.text?.trimmingCharacters(in: .whitespaces) ?? ""

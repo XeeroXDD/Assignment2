@@ -55,7 +55,7 @@ class CreateTransactionViewController: UITableViewController {
         tableView.reloadData()
     }
 
-    // MARK: - Table data
+  
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return bookSectionOffset + sections.count
@@ -115,7 +115,7 @@ class CreateTransactionViewController: UITableViewController {
         return cell
     }
 
-    // MARK: - Selection
+    
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -152,7 +152,7 @@ class CreateTransactionViewController: UITableViewController {
         present(sheet, animated: true)
     }
 
-    // MARK: - Confirm
+    
 
     @IBAction func confirmTapped(_ sender: UIBarButtonItem) {
         // Business rule: the borrower must already exist.

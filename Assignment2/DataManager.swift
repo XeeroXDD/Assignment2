@@ -210,7 +210,16 @@ class DataManager {
                     category: "Non-fiction", dueIn: 300)
 
     }
-
+    
+    func updateBook(_ book: Book, title: String, author: String,
+                    category: String, dueIn: Int64) -> Bool {
+        book.title = title
+        book.author = author
+        book.category = category
+        book.dueIn = dueIn
+        return save()
+    }
 }
 
  
+

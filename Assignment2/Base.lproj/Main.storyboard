@@ -328,7 +328,7 @@
         <!--Add Book-->
         <scene sceneID="lG6-dx-Rbt">
             <objects>
-                <viewController id="Q1r-I9-mGP" customClass="AddBookViewController" customModule="Assignment2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddBookVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Q1r-I9-mGP" customClass="AddBookViewController" customModule="Assignment2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TY1-qf-VYj">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -422,7 +422,7 @@
         <!--Borrowers-->
         <scene sceneID="ul9-Hl-NiS">
             <objects>
-                <tableViewController id="0uS-Vo-coY" customClass="BorrowerListViewController" customModule="Assignment2" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="AddBorrowerVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0uS-Vo-coY" customClass="BorrowerListViewController" customModule="Assignment2" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="hJC-FU-gH8">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
