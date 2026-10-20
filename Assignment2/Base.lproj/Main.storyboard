@@ -173,7 +173,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="ScW-jA-2ep" kind="show" id="1y2-eE-4kk"/>
+                                            <segue destination="27f-ib-JiV" kind="show" id="W7J-ZN-taw"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1B4-vD-S3P">
@@ -249,6 +249,45 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lnv-qT-tUf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="600" y="0.0"/>
+        </scene>
+        <!--New Transaction-->
+        <scene sceneID="1pj-rz-8OT">
+            <objects>
+                <tableViewController id="27f-ib-JiV" customClass="CreateTransactionViewController" customModule="Assignment2" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="8mf-Dm-TEJ">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="sectionIndexColor" systemColor="labelColor"/>
+                        <color key="sectionIndexBackgroundColor" red="0.10980392160000001" green="0.078431372550000003" blue="0.062745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="79Z-SG-1v9">
+                                <rect key="frame" x="20" y="55.333332061767578" width="353" height="51"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="79Z-SG-1v9" id="Dm0-tZ-8iH">
+                                    <rect key="frame" x="0.0" y="0.0" width="353" height="51"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="27f-ib-JiV" id="W6R-g4-uP4"/>
+                            <outlet property="delegate" destination="27f-ib-JiV" id="3sL-1c-lMT"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems>
+                        <barButtonItem title="Confirm" id="qs6-2o-0H9">
+                            <connections>
+                                <action selector="confirmTapped:" destination="27f-ib-JiV" id="Wwr-qL-oVc"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="New Transaction" id="Fvd-UA-Yz5"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ni8-JI-ka0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1393" y="292"/>
         </scene>
         <!--Books-->
         <scene sceneID="aql-xn-2DB">
@@ -513,7 +552,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ch8-1J-IIg">
-                                <rect key="frame" x="20" y="121" width="353" height="677"/>
+                                <rect key="frame" x="20" y="133" width="353" height="665"/>
                                 <color key="backgroundColor" red="0.10980392160000001" green="0.078431372550000003" blue="0.062745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -539,74 +578,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4QU-7H-LZ9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2787" y="-400"/>
-        </scene>
-        <!--New Transaction-->
-        <scene sceneID="gv2-Qr-N2U">
-            <objects>
-                <viewController id="ScW-jA-2ep" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ZYq-Ko-uIS">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="whU-2y-L6J">
-                                <rect key="frame" x="24" y="137" width="345" height="168"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Borrower" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vj6-zb-fiZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="345" height="15.666666666666666"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <color key="textColor" red="0.78820000000000001" green="0.72160000000000002" blue="0.58819999999999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Borrower selector goes here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GHR-t3-cBF">
-                                        <rect key="frame" x="0.0" y="27.666666666666657" width="345" height="20.333333333333329"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.96079999999999999" green="0.96079999999999999" blue="0.94120000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Books" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tln-1i-Pvl">
-                                        <rect key="frame" x="0.0" y="59.999999999999993" width="345" height="15.666666666666664"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <color key="textColor" red="0.78820000000000001" green="0.72160000000000002" blue="0.58819999999999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book selection list goes here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WYx-s8-WJ7">
-                                        <rect key="frame" x="0.0" y="87.666666666666657" width="345" height="20.333333333333329"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.96079999999999999" green="0.96079999999999999" blue="0.94120000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8jy-7H-8hV">
-                                        <rect key="frame" x="0.0" y="120" width="345" height="48"/>
-                                        <color key="backgroundColor" red="0.90980000000000005" green="0.63919999999999999" blue="0.2392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="48" id="JR0-Zo-ojn"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                        <state key="normal" title="Confirm transaction">
-                                            <color key="titleColor" red="0.10979999999999999" green="0.078399999999999997" blue="0.062700000000000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="10"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="QcV-is-81E"/>
-                        <color key="backgroundColor" red="0.10979999999999999" green="0.078399999999999997" blue="0.062700000000000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="QcV-is-81E" firstAttribute="trailing" secondItem="whU-2y-L6J" secondAttribute="trailing" constant="24" id="Bgt-pE-5gE"/>
-                            <constraint firstItem="whU-2y-L6J" firstAttribute="top" secondItem="QcV-is-81E" secondAttribute="top" constant="24" id="J6f-ex-YYC"/>
-                            <constraint firstItem="whU-2y-L6J" firstAttribute="leading" secondItem="QcV-is-81E" secondAttribute="leading" constant="24" id="lY0-YI-Zng"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="New Transaction" id="6fE-Mv-Vsq"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="z8w-hi-0Pt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1350" y="500"/>
         </scene>
         <!--Transactions-->
         <scene sceneID="tWJ-E4-NwW">
@@ -640,6 +611,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

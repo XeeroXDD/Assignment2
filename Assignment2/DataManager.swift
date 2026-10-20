@@ -149,7 +149,37 @@ class DataManager {
 
     }
 
+    // Books that can be borrowed right now, sorted by category then title.
+    func fetchAvailableBooks() -> [Book] {
+        return fetchBooks().filter { $0.status == BookStatus.available }
+    }
 
+    // Creates one transaction for a borrower with one LoanItem per book.
+    // Each book's due date is calculated automatically from its Due In seconds,
+    // and its status changes to On Loan (business rules).
+    func createTransaction(borrower: User, books: [Book]) -> BorrowTransaction? {
+        // Business rule: a transaction needs at least one book.
+        guard !books.isEmpty else { return nil }
+
+        let now = Date()
+        let transaction = BorrowTransaction(context: context)
+        transaction.id = UUID()	
+        transaction.dateCreated = now
+        transaction.borrower = borrower
+
+        for book in books {
+            let item = LoanItem(context: context)
+            item.book = book
+            item.transaction = transaction
+            item.requestedDate = now
+            item.dueDate = now.addingTimeInterval(TimeInterval(book.dueIn))
+            item.status = BookStatus.onLoan
+
+            book.status = BookStatus.onLoan
+        }
+
+        return save() ? transaction : nil
+    }
     func seedIfNeeded() {
         let request: NSFetchRequest<User> = User.fetchRequest()
         let userCount = (try? context.count(for: request)) ?? 0
