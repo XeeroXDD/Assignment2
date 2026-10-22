@@ -422,7 +422,7 @@
         <!--Borrowers-->
         <scene sceneID="ul9-Hl-NiS">
             <objects>
-                <tableViewController storyboardIdentifier="AddBorrowerVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0uS-Vo-coY" customClass="BorrowerListViewController" customModule="Assignment2" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="0uS-Vo-coY" customClass="BorrowerListViewController" customModule="Assignment2" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="hJC-FU-gH8">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -461,7 +461,7 @@
         <!--Add Borrower-->
         <scene sceneID="avm-Fy-OnD">
             <objects>
-                <viewController id="LcG-X9-0t2" customClass="AddBorrowerViewController" customModule="Assignment2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddBorrowerVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LcG-X9-0t2" customClass="AddBorrowerViewController" customModule="Assignment2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="22G-nq-y5J">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -582,7 +582,7 @@
         <!--Transactions-->
         <scene sceneID="tWJ-E4-NwW">
             <objects>
-                <tableViewController id="dbu-K4-VXm" sceneMemberID="viewController">
+                <tableViewController id="dbu-K4-VXm" customClass="TransactionListViewController" customModule="Assignment2" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="pWD-P7-Kye">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

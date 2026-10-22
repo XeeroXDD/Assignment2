@@ -13,13 +13,21 @@ class AddBorrowerViewController: UIViewController {
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var addressField: UITextField!
+    var borrowerToEdit : User?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Tap anywhere on the background to close the keyboard.
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:)))
         view.addGestureRecognizer(tap)
-    }
+        // Edit mode: show the existing information so it can be updated.
+        if let borrower = borrowerToEdit {
+            title = "Edit Borrower"
+            nameField.text = borrower.name
+            usernameField.text = borrower.username
+            passwordField.text = borrower.password
+            addressField.text = borrower.address
+        }    }
 
     @IBAction func saveTapped(_ sender: UIButton) {
         let name = clean(nameField)
@@ -27,7 +35,7 @@ class AddBorrowerViewController: UIViewController {
         let password = passwordField.text ?? ""
         let address = clean(addressField)
 
-        // All four fields are required.
+        
         guard !name.isEmpty, !username.isEmpty, !password.isEmpty, !address.isEmpty else {
             showAlert("Missing information", "Please fill in every field.")
             return
@@ -45,16 +53,24 @@ class AddBorrowerViewController: UIViewController {
             return
         }
 
-        // Business rule: usernames must be unique.
-        guard DataManager.shared.findUser(username: username) == nil else {
-            showAlert("Username taken", "The username \"\(username)\" is already in use.")
-            return
-        }
-
-        guard DataManager.shared.addUser(name: name, username: username, password: password,
-                                         address: address, role: Role.borrower) != nil else {
-            showAlert("Error", "The borrower could not be saved. Please try again.")
-            return
+        if let borrower = borrowerToEdit {
+            // Editing: updateUser also checks the username is still unique.
+            if let problem = DataManager.shared.updateUser(borrower, name: name, username: username,
+                                                           password: password, address: address) {
+                showAlert("Can't save", problem)
+                return
+            }
+        } else {
+            // Adding a new borrower: usernames must be unique.
+            guard DataManager.shared.findUser(username: username) == nil else {
+                showAlert("Username taken", "The username \"\(username)\" is already in use.")
+                return
+            }
+            guard DataManager.shared.addUser(name: name, username: username, password: password,
+                                             address: address, role: Role.borrower) != nil else {
+                showAlert("Error", "The borrower could not be saved. Please try again.")
+                return
+            }
         }
 
         navigationController?.popViewController(animated: true)
